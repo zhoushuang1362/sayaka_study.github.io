@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zhoushuang1362.github.io/sayaka_study.github.io//favicon.ico?v=1595866001829">
+<link rel="shortcut icon" href="https://zhoushuang1362.github.io/sayaka_study.github.io//favicon.ico?v=1595866039576">
 <link rel="stylesheet" href="https://zhoushuang1362.github.io/sayaka_study.github.io//styles/main.css">
 
 
@@ -28,7 +28,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zhoushuang1362.github.io/sayaka_study.github.io/">
-        <img src="https://zhoushuang1362.github.io/sayaka_study.github.io//images/avatar.png?v=1595866001829" class="site-logo">
+        <img src="https://zhoushuang1362.github.io/sayaka_study.github.io//images/avatar.png?v=1595866039576" class="site-logo">
         <h1 class="site-title">Gridea</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -99,93 +99,7 @@
                   2020-07-28
                 </div>
                 <div class="post-abstract">
-                  <p>一、人脸识别背景<br>
-1.人脸1:1对比<br>
-2.人脸1:N搜索<br>
-一张带检索图片，大小为N的人脸库，判断库中是否有目标人物。实际使用的特点是<br>
-- 进行N次比较<br>
-- 人工交互<br>
-- TopK eg100<br>
-- 库可以做到比较大<br>
-- 待检索图片质量可能会比较差<br>
-3.人脸N:N搜索<br>
-大量的摄像头在实时抓拍，有很多待确认的抓拍人脸<br>
-4.人脸虚拟ID的聚类<br>
-二、人脸识别基本流程<br>
-1.人脸检测<br>
-2.人脸关键点定位<br>
-对眼睛、鼻子、嘴角等信息进行定位<br>
-3.人脸矫正<br>
-便于后面模型分析或者处理时各个部分更好的对齐<br>
-4.人脸特征提取<br>
-提取得到一个人脸的描述特征，通常是一个 100 多维到几百维的特征表达，然后用不同人脸特征之间的相似度或者距离，相似度是越高越好，距离是越小越好，去刻画两个人之间的关系，再卡一个域值，来判断这两个人是否为一个人。<br>
-三、博客【机器学习实战：用nodejs实现人脸识别】<br>
-1.基于dlib实现  Dlib 是一个现代化的 C ++工具箱，其中包含用于在 C ++中创建复杂软件以解决实际问题的机器学习算法和工具<br>
-<code>扩展</code><br>
-* 机器视觉库openCV 和深度学习库dlib的比较 都是应用在图像处理和计算机视觉的开源工具<br>
-openCV Intel发起  <em>Haar-Cascade</em><br>
-Dlib Davis King发起 引入了ResNet残差神经网络 由何凯明提出 <em>HOG-SVM</em><br>
-- 文档丰富<br>
-- 支持debug模式<br>
-- 提供大量实例<br>
-- 不依赖于第三方<br>
-- 支持Windows linux macOS<br>
-- 提供了基于SVM分类和递归算法<br>
-Learn OpenCV网站博主Vikas Gupta博士发表文章，对OpenCV与Dlib中四种人脸检测算法实现进行了比较分析，包含C++/Python的代码示例，且对精度和速度都进行了量化。</p>
-<ol>
-<li>OpenCV Haar Cascade人脸检测<br>
-优点</li>
-</ol>
-<ul>
-<li>1）几乎可以在CPU上实时工作；</li>
-<li>2）简单的架构；</li>
-<li>3）可以检测不同比例的人脸。<br>
-缺点</li>
-<li>1）会出现大量的把非人脸预测为人脸的情况；</li>
-<li>2）不适用于非正面人脸图像；</li>
-<li>3）不抗遮挡。<br>
-2. OpenCV DNN 人脸检测<br>
-优点</li>
-<li>1）在这四种方法中是最准确的；</li>
-<li>2）在CPU上能够实时运行；</li>
-<li>3）适用于不同的人脸方向：上，下，左，右，侧面等。</li>
-<li>4）甚至在严重遮挡下仍能工作；</li>
-<li>5）可以检测各种尺度的人脸。<br>
-缺点<br>
-作者认为没有什么大的缺点<sup>_</sup><br>
-3. Dlib HoG人脸检测<br>
-优点</li>
-<li>1）CPU上最快的方法；</li>
-<li>2）适用于正面和略微非正面的人脸；</li>
-<li>3）与其他三个相比模型很小；</li>
-<li>4）在小的遮挡下仍可工作。<br>
-缺点</li>
-<li>1）不能检测小脸，因为它训练数据的最小人脸尺寸为80×80，但是用户可以用较小尺寸的人脸数据自己训练检测器；</li>
-<li>2）边界框通常排除前额的一部分甚至下巴的一部分；</li>
-<li>3）在严重遮挡下不能很好地工作；</li>
-<li>4）不适用于侧面和极端非正面，如俯视或仰视。<br>
-4. Dlib CNN人脸检测<br>
-优点</li>
-<li>1）适用于不同的人脸方向；</li>
-<li>2）对遮挡鲁棒；</li>
-<li>3）在GPU上工作得非常快；</li>
-<li>4）非常简单的训练过程。<br>
-缺点</li>
-<li>1）CPU速度很慢；</li>
-<li>2）不能检测小脸，因为它训练数据的最小人脸尺寸为80×80，但是用户可以用较小尺寸的人脸数据自己训练检测器；</li>
-<li>3）人脸包围框甚至小于DLib HoG人脸检测器。<br>
-<code>总结推荐</code><br>
-如何在应用中选择人脸检测算法呢？作者认为应该首先尝试OpenCV DNN方法与Dlib HOG方法，然后再做决定。</li>
-<li>一般情况<br>
-在大多数应用程序中，我们无法知道图像中人脸尺寸的大小。因此，最好使用OpenCV-DNN方法，因为它非常快速且非常准确，即使对于小尺寸的人脸也是如此。它还可以检测各种角度的人脸。所以OpenCV-DNN是首选。</li>
-<li>中到大尺寸的图像<br>
-Dlib HOG是CPU上最快的方法。但它不能检测到小脸（&lt;70x70）。因此，如果知道程序不会处理非常小的人脸（例如自拍照），那么基于HOG的人脸检测器是更好的选择。<br>
-此外，如果你可以使用GPU（NVIDIA家的），那么MMOD人脸检测器是最好的选择，因为它在GPU上非常快，并且还提供各种角度的检测。</li>
-<li>高分辨率图像<br>
-由于在高分辨率图像中，这些算法的速度都会很慢，而如果缩小图像尺寸，HOG/MMOD可能会失败，同时OpenCV-DNN却可以检测小脸，所以对于高分辨率图像推荐缩小图像再使用OpenCV-DNN的方法。<br>
-*</li>
-</ul>
-
+                  
                 </div>
               </div>
               
